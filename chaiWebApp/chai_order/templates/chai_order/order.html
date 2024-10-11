@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home - Order Chai{% endblock %}
+
+{% block content %}
+<div class="container mx-auto py-10">
+    <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="text-center bg-green-600 py-6 text-white">
+            <h1 class="text-3xl font-bold mb-2">Order Your Favorite Chai</h1>
+            <p class="text-lg">Enjoy chai from the comfort of your home!</p>
+        </div>
+
+        <!-- Order Form -->
+        <form method='POST' enctype="multipart/form-data" class="px-8 pt-6 pb-8">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            {% for field in form %}
+            <div class="mb-6">
+                <label for="{{ field.id_for_label }}" class="block text-gray-700 text-sm font-bold mb-2">{{ field.label }}</label>
+                <div>
+                    {{ field.as_widget|safe }}  <!-- Directly rendering the widget without filters -->
+                    {{ field.errors }}
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="flex items-center justify-center">
+                <button type='submit' class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-300">
+                    Place Order
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    flatpickr("#date-picker", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        defaultDate: new Date(),
+        altInput: true,
+        altFormat: "F j, Y h:i K",
+    });
+</script>
+{% endblock %}

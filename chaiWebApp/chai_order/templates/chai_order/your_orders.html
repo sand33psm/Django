@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+List of All Your Chai
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-10">Your Chai Orders</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for chai in chai_orders %}
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col items-center p-6">
+            <!-- Chai Image -->
+
+            <div class="flex-1 flex flex-col items-center text-center p-4 rounded-lg mb-6">
+                <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="h-40 w-full object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ chai.name }}</h2>
+                <p class="text-gray-600 mb-2"><strong>Type:</strong> {{ chai.get_type_display }}</p>
+                <p class="text-gray-500 mb-4"><strong>Ordered on:</strong> {{ chai.date|date:"F j, Y, g:i a" }}</p>
+            </div>
+
+            <!-- Edit and Delete Buttons -->
+            <div class="flex space-x-4 w-full">
+                <a href="{% url 'edit_chai' chai.id %}" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg text-center transition-colors">
+                    Edit
+                </a>
+                <a href="{% url 'delete_chai' chai.id %}" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg text-center transition-colors">
+                    Delete
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-gray-500">No chai orders available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

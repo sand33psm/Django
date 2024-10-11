@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}Welcome to Chai World{% endblock %}
+
+{% block content %}
+<div class="text-center bg-gray-50 py-12">
+    <h1 class="text-5xl font-extrabold mb-8 text-green-700">The World of Chai</h1>
+    <p class="text-lg mb-12 text-gray-600">Discover the rich tradition of chai and find your favorite flavor!</p>
+    
+    <!-- Introduction Section -->
+    <section class="mb-16 bg-white border border-gray-200 rounded-lg shadow-lg p-8 mx-4 md:mx-auto max-w-4xl relative">
+        <h2 class="text-3xl font-semibold mb-6 text-green-600">What is Chai?</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6">Chai is a popular Indian tea made by brewing black tea with a mixture of aromatic spices and herbs. The word "chai" means "tea" in Hindi, and the drink has a long cultural history across India and beyond. Whether you like it strong or mild, spiced or plain, chai has a flavor for everyone!</p>
+        <img src="media/chai_images/chai_display.jpg" alt="A cup of chai" class="mx-auto my-8 max-w-md shadow-xl rounded-lg transition-transform transform hover:scale-105">
+        <!-- Decorative Border -->
+        <div class="absolute inset-0 border-4 border-green-700 rounded-lg pointer-events-none"></div>
+    </section>
+
+    <!-- Different Types of Chai -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-semibold mb-8 text-green-600">Popular Chai Varieties</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="bg-white p-8 shadow-lg rounded-lg transition-shadow hover:shadow-2xl">
+                <h3 class="text-xl font-bold mb-4 text-green-700">Masala Chai</h3>
+                <p class="text-gray-600">A spiced chai made with a blend of traditional Indian spices like cardamom, cinnamon, and ginger. It's rich, flavorful, and perfect for any time of day.</p>
+            </div>
+            <div class="bg-white p-8 shadow-lg rounded-lg transition-shadow hover:shadow-2xl">
+                <h3 class="text-xl font-bold mb-4 text-green-700">Ginger Chai</h3>
+                <p class="text-gray-600">A zesty twist on chai made with fresh ginger. It adds a warm, spicy kick and is excellent for boosting your immune system.</p>
+            </div>
+            <div class="bg-white p-8 shadow-lg rounded-lg transition-shadow hover:shadow-2xl">
+                <h3 class="text-xl font-bold mb-4 text-green-700">Elaichi Chai (Cardamom)</h3>
+                <p class="text-gray-600">This aromatic chai is infused with cardamom, a spice known for its sweet and peppery flavor, giving chai a refreshing and unique taste.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits of Drinking Chai -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-semibold mb-8 text-green-600">Benefits of Drinking Chai</h2>
+        <ul class="list-disc text-left text-lg text-gray-700 leading-relaxed max-w-xl mx-auto mb-6">
+            <li class="mb-2">Rich in antioxidants that can boost overall health.</li>
+            <li class="mb-2">Can aid digestion due to the use of spices like ginger and cinnamon.</li>
+            <li class="mb-2">Provides a natural energy boost from black tea.</li>
+            <li>May help reduce inflammation.</li>
+        </ul>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="mb-12">
+        <a href="{% url 'order' %}" class="bg-green-700 hover:bg-green-800 text-white text-lg font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">Order Your Favorite Chai Now!</a>
+    </section>
+</div>
+{% endblock %}
